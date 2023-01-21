@@ -9,7 +9,7 @@ export const OciTask = ({handleCloseOciTask, showOciTask, isEditTask, selectedTa
         modifiedTask.title = selectedTask.title;
         modifiedTask.priority = selectedTask.priority;
         modifiedTask.completed = selectedTask.completed;
-        modifiedTask.description = selectedTask.description !== null ?  modifiedTask.description : "";
+        modifiedTask.description = selectedTask.description !== null ?  selectedTask.description : "";
         modifiedTask.startDate = selectedTask.startDate !== null ? selectedTask.startDate.substring(0,10) : "";
         modifiedTask.dueDate = selectedTask.dueDate !== null ? selectedTask.dueDate.substring(0,10) : "";
     }
