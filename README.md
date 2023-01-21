@@ -19,25 +19,6 @@ Helps to view and manage OCI Tasks. Interacts with OCI Task REST Service for loa
 8. Rule for `MySQL`: Allow TCP Traffic for IP range `0.0.0.0/0` for destination port `3306` (all Source Ports).
 9. Rule for `ocitasknodeweb`: Allow TCP Traffic for IP range `0.0.0.0/0` for destination port `3000` (all Source Ports).
 
-## Build
-
-- In the project directory, run: `npm run build`.
-- Builds the app for production to the `build` folder.
-- It correctly bundles React in production mode and optimizes the build for the best performance.
-
-## Test
-
-- In the project directory, run: `npm test`.
-- Launches the test runner in the interactive watch mode.
-
-## Launch
-
-- In the project directory, run: `npm start`.
-- Runs the app in the development mode.
-- Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-- The page will reload when you make changes.
-- Lint errors (if any) would be logged into console.
-
 ## Build Project Using OCI
 
 1. Logon to [OCI Cloud](https://cloud.oracle.com).
@@ -62,11 +43,22 @@ Helps to view and manage OCI Tasks. Interacts with OCI Task REST Service for loa
 
 ### Build
 
-In the project directory, run: `npm run build`.
+- In the project directory, run: `npm run build`.
+- Builds the app for production to the `build` folder.
+- It correctly bundles React in production mode and optimizes the build for the best performance.
 
-### Testing
+### Test
 
-In the project directory, run: `npm test`.
+- In the project directory, run: `npm test`.
+- Launches the test runner in the interactive watch mode.
+
+## Launch
+
+- In the project directory, run: `npm start`.
+- Runs the app in the development mode.
+- Open `http://<Public IP>:3000` to view it in your browser.
+- The page will reload when you make changes.
+- Lint errors (if any) would be logged into console.
 
 ### Build Docker Image
 
