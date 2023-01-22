@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = 'http://192.9.237.204:8081/v1/ocitaskserv';
+const baseUrl = 'http://138.2.233.236:8080/application/v1/ocitaskrestservice';
 
 export function LoadTasks(setData, setError) {
 

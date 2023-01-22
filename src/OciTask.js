@@ -5,13 +5,13 @@ export const OciTask = ({handleCloseOciTask, showOciTask, isEditTask, selectedTa
 
     var modifiedTask = {}
     if(selectedTask !== undefined) {
-        modifiedTask.id = selectedTask.id;
-        modifiedTask.title = selectedTask.title;
-        modifiedTask.priority = selectedTask.priority;
-        modifiedTask.completed = selectedTask.completed;
-        modifiedTask.description = selectedTask.description !== null ?  selectedTask.description : "";
-        modifiedTask.startDate = selectedTask.startDate !== null ? selectedTask.startDate.substring(0,10) : "";
-        modifiedTask.dueDate = selectedTask.dueDate !== null ? selectedTask.dueDate.substring(0,10) : "";
+        modifiedTask.id = selectedTask.id !== undefined && selectedTask.id !== null ? selectedTask.id : 0;
+        modifiedTask.title = selectedTask.title != undefined && selectedTask.title !== null ? selectedTask.title : "";
+        modifiedTask.priority = selectedTask.priority !== undefined && selectedTask.priority !== null ? selectedTask.priority : 0;
+        modifiedTask.completed = selectedTask.completed !== undefined && selectedTask.completed !== null ? selectedTask.completed : false;
+        modifiedTask.description = selectedTask.description !== undefined && selectedTask.description !== null ?  selectedTask.description : "";
+        modifiedTask.startDate = selectedTask.startDate !== undefined && selectedTask.startDate !== null && selectedTask.startDate !== "" ? new Date(selectedTask.startDate).toISOString().substring(0,10) : "";
+        modifiedTask.dueDate = selectedTask.dueDate !== undefined && selectedTask.dueDate !== null && selectedTask.dueDate !== "" ? new Date(selectedTask.dueDate).toISOString().substring(0,10) : "";
     }
 
     const updateTitle = (title) => {
@@ -44,34 +44,34 @@ export const OciTask = ({handleCloseOciTask, showOciTask, isEditTask, selectedTa
                 <div>
                     <h3>{isEditTask === true ? "Edit OCI Task" : "Add OCI Task"}</h3>
                 </div>
-                <div key={modifiedTask.title !== undefined && modifiedTask.title !== null ? "title" + modifiedTask.title : "Enter Title"}>
+                <div key={modifiedTask.title !== undefined ? "title" + modifiedTask.title : "Enter Title"}>
                     <label for="title">Title:</label>
-                    <input name="title" defaultValue={modifiedTask.title !== undefined && modifiedTask.title !== null ? modifiedTask.title : "Enter Title"} onChange={(val) => updateTitle(val)}/>
+                    <input name="title" defaultValue={modifiedTask.title !== undefined ? modifiedTask.title : "Enter Title"} onChange={(val) => updateTitle(val)}/>
                 </div>
                 &nbsp;&nbsp;&nbsp;
-                <div key={modifiedTask.description !== undefined && modifiedTask.description !== null ? "description" + modifiedTask.description : "Enter Description"}>
+                <div key={modifiedTask.description !== undefined ? "description" + modifiedTask.description : "Enter Description"}>
                     <label for="description">Description:</label>
-                    <input name="description" defaultValue={modifiedTask.description !== undefined && modifiedTask.description !== null ? modifiedTask.description : "Enter Description"} onChange={(val) => updateDescription(val)}/>
+                    <input name="description" defaultValue={modifiedTask.description !== undefined ? modifiedTask.description : "Enter Description"} onChange={(val) => updateDescription(val)}/>
                 </div>
                 &nbsp;&nbsp;&nbsp;
-                <div key={modifiedTask.priority !== undefined && modifiedTask.priority !== null ? "priority" + modifiedTask.priority.toString() : "Enter Priority"}>
+                <div key={modifiedTask.priority !== undefined ? "priority" + modifiedTask.priority.toString() : "Enter Priority"}>
                     <label for="priority">Priority:</label>
-                    <input name="priority" defaultValue={modifiedTask.priority !== undefined && modifiedTask.priority !== null ? modifiedTask.priority.toString() : "Enter Priority"} onChange={(val) => updatePriority(val)}/>
+                    <input name="priority" defaultValue={modifiedTask.priority !== undefined ? modifiedTask.priority.toString() : "Enter Priority"} onChange={(val) => updatePriority(val)}/>
                 </div>
                 &nbsp;&nbsp;&nbsp;
-                <div key={modifiedTask.startDate !== undefined && modifiedTask.startDate !== null ? "startDate" + modifiedTask.startDate.substring(0,10) : "Enter Start Date yyyy-mm-dd"}>
+                <div key={modifiedTask.startDate !== undefined ? "startDate" + modifiedTask.startDate : "Enter Start Date yyyy-mm-dd"}>
                     <label for="startDate">Start Date:</label>
-                    <input name="startDate" defaultValue={modifiedTask.startDate !== undefined && modifiedTask.startDate !== null ? modifiedTask.startDate.substring(0,10) : "Enter Start Date yyyy-mm-dd"} onChange={(val) => updateStartDate(val)}/>
+                    <input name="startDate" defaultValue={modifiedTask.startDate !== undefined ? modifiedTask.startDate : "Enter Start Date yyyy-mm-dd"} onChange={(val) => updateStartDate(val)}/>
                 </div>
                 &nbsp;&nbsp;&nbsp;
-                <div key={modifiedTask.dueDate !== undefined && modifiedTask.dueDate !== null ? "dueDate" + modifiedTask.dueDate.substring(0,10) : "Enter Due Date yyyy-mm-dd"}>
+                <div key={modifiedTask.dueDate !== undefined ? "dueDate" + modifiedTask.dueDate : "Enter Due Date yyyy-mm-dd"}>
                     <label for="dueDate">Due Date:</label>
-                    <input name="dueDate" defaultValue={modifiedTask.dueDate !== undefined && modifiedTask.dueDate !== null ? modifiedTask.dueDate.substring(0,10) : "Enter Due Date yyyy-mm-dd"} onChange={(val) => updateDueDate(val)}/>
+                    <input name="dueDate" defaultValue={modifiedTask.dueDate !== undefined ? modifiedTask.dueDate : "Enter Due Date yyyy-mm-dd"} onChange={(val) => updateDueDate(val)}/>
                 </div>
                 &nbsp;&nbsp;&nbsp;
-                <div key={modifiedTask.completed !== undefined && modifiedTask.completed !== null ? "completed" + (modifiedTask.completed === true) ? "Yes" : "No" : "No"}>
+                <div key={modifiedTask.completed !== undefined ? "completed" + (modifiedTask.completed === true ? "Yes" : "No") : "No"}>
                     <label for="completed">Completed:</label>
-                    <input type="checkbox" name="completed" defaultChecked={modifiedTask.completed !== undefined && modifiedTask.completed !== null ? modifiedTask.completed : false} onChange={(val) => updateCompleted(val)}/>
+                    <input type="checkbox" name="completed" defaultChecked={modifiedTask.completed !== undefined ? modifiedTask.completed : false} onChange={(val) => updateCompleted(val)}/>
                 </div>
                 &nbsp;&nbsp;&nbsp;
                 <div>
